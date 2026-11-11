@@ -1,0 +1,22 @@
+=== Mission 7: Network Inspection Log (Privacy-Safe) ===
+
+$ ping -c 4 example.com
+PING example.com (172.66.147.243): 56 data bytes
+64 bytes from 172.66.147.243: icmp_seq=0 ttl=58 time=7.791 ms
+64 bytes from 172.66.147.243: icmp_seq=1 ttl=58 time=17.791 ms
+64 bytes from 172.66.147.243: icmp_seq=2 ttl=58 time=5.845 ms
+64 bytes from 172.66.147.243: icmp_seq=3 ttl=58 time=4.658 ms
+
+--- example.com ping statistics ---
+4 packets transmitted, 4 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 4.658/9.021/17.791/5.185 ms
+
+$ nslookup example.com
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+Name:	example.com
+Address: 172.66.147.243
+Name:	example.com
+Address: 104.20.23.154
