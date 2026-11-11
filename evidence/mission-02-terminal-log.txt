@@ -1,0 +1,38 @@
+=== Mission 2: Terminal Operations Log (Privacy-Safe) ===
+
+$ pwd
+[redacted_project_root]/digital-detective-2402608002
+
+$ ls
+README.md			mission-03-operating-system	mission-07-networking
+evidence			mission-04-programs		mission-08-final-report
+mission-00-setup		mission-05-numbers-data
+mission-01-computer-basics	mission-06-git-github
+mission-02-terminal
+
+$ mkdir -p terminal-practice
+$ cd terminal-practice
+$ touch original.txt
+$ echo "Line 1: Exploring Terminal operations." > original.txt
+$ echo "Line 2: Successfully appending data without overwriting." >> original.txt
+$ cat original.txt
+Line 1: Exploring Terminal operations.
+Line 2: Successfully appending data without overwriting.
+
+$ cp original.txt backup_original.txt
+$ mv backup_original.txt archived_original.txt
+$ ls -la
+drwxr-xr-x@  4 [user]  staff  128 [timestamp] .
+drwxr-xr-x@ 15 [user]  staff  480 [timestamp] ..
+-rw-r--r--@  1 [user]  staff   96 [timestamp] archived_original.txt
+-rw-r--r--@  1 [user]  staff   96 [timestamp] original.txt
+
+$ ls -lah | head -n 5
+total 8
+drwxr-xr-x@ 15 [user]  staff   480B [timestamp] .
+drwxr-xr-x@ 19 [user]  staff   608B [timestamp] ..
+drwxr-xr-x@ 13 [user]  staff   416B [timestamp] .git
+-rw-r--r--@  1 [user]  staff   2.6K [timestamp] README.md
+
+$ brew --version
+Homebrew 7.0.10

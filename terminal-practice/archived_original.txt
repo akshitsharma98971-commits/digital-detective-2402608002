@@ -1,0 +1,2 @@
+Line 1: Exploring Terminal operations.
+Line 2: Successfully appending data without overwriting.
