@@ -1,78 +1,58 @@
-# The Digital Detective: Explore Your Computer • Build a Mini System Report
+# The Digital Detective - Explore Your Computer and Build a Mini System Report
 
-**Diwali Independent Learning Assignment**
+Diwali Independent Learning Assignment
 
 ## Student Information
-- **Name:** Akshit Sharma
-- **USN:** 2402608002
-- **Campus / Section:** NST Bangalore
-- **GitHub Username:** akshitsharma98971-commits
-- **GitHub Repository Name:** `digital-detective-2402608002`
-- **GitHub Repository URL:** [https://github.com/akshitsharma98971-commits/digital-detective-2402608002](https://github.com/akshitsharma98971-commits/digital-detective-2402608002)
+- Name: Akshit Sharma
+- USN: 2402608002
+- Campus / Section: NST Bangalore
+- GitHub Username: akshitsharma98971-commits
+- GitHub Repository Name: digital-detective-2402608002
+- GitHub Repository URL: https://github.com/akshitsharma98971-commits/digital-detective-2402608002
 
----
+## Assignment Introduction
+This repository contains my work for the Digital Detective assignment. As a beginner learning computer science, this project helped me explore how a computer works on the inside. I practiced using the terminal, explored how the operating system handles programs, files, and memory, practiced converting numbers to binary and hexadecimal, wrote a small Python number converter, practiced Git version control with branches and pull requests, and learned how computers communicate over the internet.
 
-## Assignment Overview
-The **Digital Detective** assignment is an intensive, practical investigation into the foundational layers of computing systems, operating systems, software execution, data representation, version control, and computer networking. 
-
-Across nine sequential missions, this project explores how physical hardware coordinates with kernel software, how command-line interfaces enable safe systems management, how compilers and interpreters differ, how binary and hexadecimal numbers represent information, how Git branching and Pull Requests enable collaborative software engineering, and how the Internet delivers web resources from servers to clients.
-
----
-
-## Topics Explored
-1. **Computer Fundamentals & the IPOS Model:** Tracking data flow across Input, Processing, Output, and Storage stages; classifying system, application, and utility software; analyzing everyday embedded systems (ATMs, traffic lights, smart transit gates).
-2. **Command-Line & Terminal Proficiency:** Navigating hierarchical filesystems, executing safe file operations, appending vs. overwriting streams (`>>` vs `>`), combining commands with Unix pipes (`|`), and using package managers (Homebrew).
-3. **Operating System Architecture & Internals:** Inspecting hardware platforms, kernel releases, storage quotas, tracking processes and PIDs, evaluating absolute vs. relative paths, and decoding POSIX file permission triples (`rwx`).
-4. **Program Execution & Language Translation:** Executing Python scripts and conducting an architectural comparison between compiled languages (C, C++, Rust) and interpreted languages (Python, JavaScript).
-5. **Number Systems & Character Encodings:** Manual conversions across decimal, binary, and hexadecimal radix systems; programmatic validation using Python; developing an interactive conversion utility (`number_converter.py`); and analyzing ASCII versus UTF-8 text encodings.
-6. **Version Control with Git & GitHub:** Tracking files, managing staging versus committed snapshots, developing feature branches (`update-about`), creating and merging GitHub Pull Requests (#1), and formulating a comprehensive Git command glossary.
-7. **Computer Networking & Web Communication:** Defining network topologies (LAN, MAN, WAN) and foundational protocols; testing connectivity with `ping` and `nslookup`; tracing the 7-step lifecycle of loading a web application from browser to server.
-8. **Final System Verification & Quality Audit:** Validating repository structure, auditing privacy compliance (redaction of sensitive IPs/credentials), and finalizing project documentation.
-
----
+Each mission in this project was completed, documented, and committed separately one by one to show the step by step learning process.
 
 ## Mission Index
-| Mission | Focus Area | Status | Folder Link |
-| :--- | :--- | :---: | :--- |
-| **Mission 0** | Repository and workspace setup | Completed | [mission-00-setup/](mission-00-setup/README.md) |
-| **Mission 1** | Computer fundamentals and IPOS | Completed | [mission-01-computer-basics/](mission-01-computer-basics/README.md) |
-| **Mission 2** | Terminal and file management | Completed | [mission-02-terminal/](mission-02-terminal/README.md) |
-| **Mission 3** | Operating system, processes and permissions | Completed | [mission-03-operating-system/](mission-03-operating-system/README.md) |
-| **Mission 4** | How programs run | Completed | [mission-04-programs/](mission-04-programs/README.md) |
-| **Mission 5** | Number systems, Python and text encoding | Completed | [mission-05-numbers-data/](mission-05-numbers-data/README.md) |
-| **Mission 6** | Git, GitHub, branches and Pull Requests | Completed | [mission-06-git-github/](mission-06-git-github/README.md) |
-| **Mission 7** | Computer networks | Completed | [mission-07-networking/](mission-07-networking/README.md) |
-| **Mission 8** | Final review and submission | Completed | [mission-08-final-report/](mission-08-final-report/README.md) |
+- Mission 0: Setup and workspace - [mission-00-setup/](mission-00-setup/README.md)
+- Mission 1: Computer fundamentals and IPOS - [mission-01-computer-basics/](mission-01-computer-basics/README.md)
+- Mission 2: Terminal and file management - [mission-02-terminal/](mission-02-terminal/README.md)
+- Mission 3: Operating system, processes and permissions - [mission-03-operating-system/](mission-03-operating-system/README.md)
+- Mission 4: How programs run - [mission-04-programs/](mission-04-programs/README.md)
+- Mission 5: Number systems, Python and text encoding - [mission-05-numbers-data/](mission-05-numbers-data/README.md)
+- Mission 6: Git, GitHub, branches and Pull Requests - [mission-06-git-github/](mission-06-git-github/README.md)
+- Mission 7: Computer networks - [mission-07-networking/](mission-07-networking/README.md)
+- Mission 8: Final review and submission - [mission-08-final-report/](mission-08-final-report/README.md)
 
----
+## Topics Explored
+1. Computer fundamentals: the IPOS cycle (Input, Processing, Output, Storage), hardware parts, software types (operating system, application, utility), and everyday systems like ATMs and smart TVs.
+2. Terminal basics: navigating folders, listing files, creating and copying files safely, appending text without erasing old lines, using flags like -l and -a, and chaining commands with pipes.
+3. Operating system: finding system specs, understanding what processes and PIDs are, difference between absolute and relative paths, file permission letters (r, w, x), and core OS tasks like memory and file management.
+4. Program execution: running a Python script from the terminal and comparing how compilers and interpreters translate and run code.
+5. Number systems and data: converting between decimal, binary, and hexadecimal by hand and with Python, building an interactive number converter program, and learning how ASCII and UTF-8 store characters.
+6. Git and GitHub: tracking changes, difference between staging and committing, creating a feature branch, making a Pull Request, and learning common Git commands.
+7. Networking: explaining LAN, MAN, WAN, routers, protocols, and DNS, running ping and nslookup tests, and tracing the 6 steps of what happens when a website opens.
+8. Final review: checking repository files, making sure private data is removed, and verifying all requirements.
 
-## How to Run the Number Converter Program
-The interactive number conversion tool built in **Mission 5** is located in the `mission-05-numbers-data/` folder.
+## How to Run the Number Converter
+The number converter program created in Mission 5 takes a positive decimal number and shows its binary and hexadecimal values.
 
-### Step-by-Step Instructions:
-1. Open your Terminal.
-2. Navigate to the mission directory:
-   ```bash
-   cd mission-05-numbers-data
-   ```
-3. Run the script using Python 3:
-   ```bash
-   python3 number_converter.py
-   ```
-4. Enter any positive decimal integer when prompted (for example: `13`, `25`, `42`, or `255`).
-5. The application will output both the formatted binary representation (prefixed with `0b`) and the hexadecimal representation (prefixed with `0x`), along with the raw digit strings.
+To run it from the root folder, open your terminal and type:
+python3 mission-05-numbers-data/number_converter.py
 
----
+Or you can enter the mission 5 folder first and run it:
+cd mission-05-numbers-data
+python3 number_converter.py
+
+When prompted, type a positive integer (like 13, 25, or 42) and press Enter. The program will print the decimal number along with its binary and hexadecimal forms.
 
 ## My Learning
-Throughout this independent assignment, key theoretical computer science concepts were reinforced through direct hands-on practice:
-1. **The IPOS Cycle and System Layers:** Experiencing how hardware switches and keyboard interrupts cascade through the OS kernel, memory registers, and storage blocks highlighted the deep synergy between hardware and software.
-2. **Command-Line Discipline and Safety:** Operating in the shell emphasized precision—understanding stream redirection (`>` vs `>>`), piping data between programs (`|`), and auditing file permissions to maintain secure filesystems.
-3. **Data Representation at the Hardware Level:** Converting values between decimal, binary, and hexadecimal demystified how microprocessors process and store numbers and characters strictly as patterns of binary bits.
-4. **Collaborative Version Control:** Branching, opening Pull Requests, and resolving changes modeled industry-standard professional software development workflows.
+During this assignment, I learned several fundamental computer concepts that were new to me:
+- I learned how to use the command line terminal comfortably. At first, typing commands felt strange compared to clicking with a mouse, but I discovered that commands like pwd, ls, mkdir, and cat make navigating files fast and clear.
+- I learned how numbers and text are stored inside a computer. Computers only work with 0s and 1s, so numbers use the binary system and text characters use encoding standards like ASCII and UTF-8 where each letter has a number code.
+- I learned how Git and GitHub work together. Git keeps track of my file changes on my own computer using commits, while GitHub lets me store the repository online and use branches and Pull Requests so people can collaborate safely without messing up working code.
 
----
-
-## Mission Workflow & Integrity
-- **Sequential Execution:** Every mission was completed in chronological order, fully documented, committed with a descriptive message, and pushed to GitHub before starting the subsequent mission.
-- **Privacy Compliance:** In accordance with assignment rules, all personal identification (usernames, local network IP addresses, and authentication tokens) has been strictly redacted (`[redacted]`) from all evidence logs and documentation.
+## Summary of What I Learned
+Overall, this assignment showed me that a computer is not magic. It is a carefully designed system where hardware devices, the operating system, programming languages, and network connections work together. Starting with simple commands and building up to writing Python programs and managing Git branches helped build my confidence as a beginner student.

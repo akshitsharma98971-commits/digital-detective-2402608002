@@ -1,140 +1,134 @@
-# Mission 5 — Numbers and data
+# Mission 5 - Numbers and data
 
 ## 1. Task / objective
-The objective of Mission 5 is to understand fundamental data representation inside computer architectures: performing manual step-by-step conversions between decimal (Base 10), binary (Base 2), and hexadecimal (Base 16) number systems, verifying calculations with Python functions, engineering an interactive Python CLI conversion tool (`number_converter.py`), and analyzing text encoding standards (ASCII vs. Unicode/UTF-8).
+The objective of this mission was to learn how computers represent numbers and data using binary and hexadecimal, do manual conversions by hand, verify the calculations with Python functions, build a small Python converter script called number_converter.py, and learn how characters and text are stored using ASCII and UTF-8.
 
 ## 2. Work completed
-- Performed step-by-step manual conversions for all 7 required numeric problems (showing division-by-2 remainder methods, positional power expansion, and hex nibble conversions).
-- Verified each conversion using Python's built-in functions in interactive testing (`bin()`, `hex()`, `int()`, `ord()`).
-- Programmed a robust command-line conversion application: `number_converter.py`.
-- Tested the converter with diverse positive integers (13, 25, 42, 255) and documented the outputs.
-- Answered theoretical questions on character encoding, ASCII byte values, and Unicode UTF-8 representations.
-- Documented findings in `mission-05-numbers-data/README.md`.
-
----
+I did seven math conversions by hand on paper and wrote out the step by step working for each.
+I opened the Python terminal and tested each conversion using bin(), hex(), and int() to verify my manual math.
+I wrote a Python program called number_converter.py that asks for a number and prints its binary and hexadecimal equivalents.
+I tested number_converter.py with three different positive numbers: 13, 25, and 42.
+I looked up the ASCII decimal codes for A and a, explained why computers need text encoding standards, and gave an example of a character outside of basic ASCII.
 
 ## 3. Commands / tools used
-| Function / Command | Purpose | Example Tested | Result |
-| :--- | :--- | :--- | :--- |
-| `bin(n)` | Converts a decimal integer into a binary string prefixed with `0b` | `bin(13)` | `'0b1101'` |
-| `hex(n)` | Converts a decimal integer into a hexadecimal string prefixed with `0x` | `hex(0b1111)` | `'0xf'` |
-| `int(str, base)` | Parses an integer from a string representation in the specified radix/base | `int('1010', 2)` | `10` |
-| `int(str, 16)` | Parses a hexadecimal string into base 10 integer | `int('1F', 16)` | `31` |
-| `ord(char)` | Returns the integer Unicode / ASCII code point for a given character | `ord('A')` | `65` |
-| `python3 number_converter.py` | Runs the interactive number conversion tool | User input test | Executed |
-
----
+python3: ran the interactive Python shell and executed the script.
+bin(): built-in Python function that converts an integer into a binary string starting with 0b.
+hex(): built-in Python function that converts an integer into a hexadecimal string starting with 0x.
+int(x, base): built-in Python function that converts a binary or hexadecimal string into a base-10 decimal number.
 
 ## 4. My understanding
 
-### Task 5.1 — Convert numbers by hand
+Task 5.1 - Convert numbers by hand
 
-#### 1. Convert decimal 13 to binary
-- Repeated division by 2, recording remainders from least significant bit (LSB) to most significant bit (MSB):
-  - $13 \div 2 = 6$, remainder **1** (LSB)
-  - $6 \div 2 = 3$, remainder **0**
-  - $3 \div 2 = 1$, remainder **1**
-  - $1 \div 2 = 0$, remainder **1** (MSB)
-- Reading remainders from bottom to top: **$1101_2$**
-- Verification: $(1 \times 2^3) + (1 \times 2^2) + (0 \times 2^1) + (1 \times 2^0) = 8 + 4 + 0 + 1 = 13_{10}$.
+1. Convert decimal 13 to binary:
+Steps using repeated division by 2:
+13 divided by 2 = 6 with remainder 1
+6 divided by 2 = 3 with remainder 0
+3 divided by 2 = 1 with remainder 1
+1 divided by 2 = 0 with remainder 1
+Reading remainders from bottom to top gives: 1101
+Answer: 1101 in binary
 
-#### 2. Convert decimal 25 to binary
-- Repeated division by 2:
-  - $25 \div 2 = 12$, remainder **1** (LSB)
-  - $12 \div 2 = 6$, remainder **0**
-  - $6 \div 2 = 3$, remainder **0**
-  - $3 \div 2 = 1$, remainder **1**
-  - $1 \div 2 = 0$, remainder **1** (MSB)
-- Reading remainders from bottom to top: **$11001_2$**
-- Verification: $(1 \times 2^4) + (1 \times 2^3) + (0 \times 2^2) + (0 \times 2^1) + (1 \times 2^0) = 16 + 8 + 0 + 0 + 1 = 25_{10}$.
+2. Convert decimal 25 to binary:
+Steps using repeated division by 2:
+25 divided by 2 = 12 with remainder 1
+12 divided by 2 = 6 with remainder 0
+6 divided by 2 = 3 with remainder 0
+3 divided by 2 = 1 with remainder 1
+1 divided by 2 = 0 with remainder 1
+Reading remainders from bottom to top gives: 11001
+Answer: 11001 in binary
 
-#### 3. Convert binary 1010 to decimal
-- Positional power expansion in base 2:
-  - Bit 3 ($2^3$): $1 \times 8 = 8$
-  - Bit 2 ($2^2$): $0 \times 4 = 0$
-  - Bit 1 ($2^1$): $1 \times 2 = 2$
-  - Bit 0 ($2^0$): $0 \times 1 = 0$
-  - Sum: $8 + 0 + 2 + 0 =$ **$10_{10}$**
+3. Convert binary 1010 to decimal:
+Steps using positional powers of 2 (from right to left: 1, 2, 4, 8):
+1 * (2 to the power 3) = 1 * 8 = 8
+0 * (2 to the power 2) = 0 * 4 = 0
+1 * (2 to the power 1) = 1 * 2 = 2
+0 * (2 to the power 0) = 0 * 1 = 0
+Total: 8 + 0 + 2 + 0 = 10
+Answer: 10 in decimal
 
-#### 4. Convert binary 1101 to decimal
-- Positional power expansion:
-  - Bit 3 ($2^3$): $1 \times 8 = 8$
-  - Bit 2 ($2^2$): $1 \times 4 = 4$
-  - Bit 1 ($2^1$): $0 \times 2 = 0$
-  - Bit 0 ($2^0$): $1 \times 1 = 1$
-  - Sum: $8 + 4 + 0 + 1 =$ **$13_{10}$**
+4. Convert binary 1101 to decimal:
+Steps using positional powers of 2:
+1 * (2 to the power 3) = 1 * 8 = 8
+1 * (2 to the power 2) = 1 * 4 = 4
+0 * (2 to the power 1) = 0 * 2 = 0
+1 * (2 to the power 0) = 1 * 1 = 1
+Total: 8 + 4 + 0 + 1 = 13
+Answer: 13 in decimal
 
-#### 5. Convert hexadecimal A to decimal
-- In hexadecimal, the single digit $A$ represents decimal $10$.
-- Expansion: $10 \times 16^0 =$ **$10_{10}$**
+5. Convert hexadecimal A to decimal:
+In base 16 (hexadecimal), single digits go from 0 to 9, then letters are used for 10 through 15:
+A = 10, B = 11, C = 12, D = 13, E = 14, F = 15.
+Answer: 10 in decimal
 
-#### 6. Convert hexadecimal 1F to decimal
-- Hexadecimal has base 16, where $F = 15$:
-  - High nibble ($16^1$): $1 \times 16 = 16$
-  - Low nibble ($16^0$): $15 \times 1 = 15$
-  - Sum: $16 + 15 =$ **$31_{10}$**
+6. Convert hexadecimal 1F to decimal:
+Steps using positional powers of 16 (from right to left: 1, 16):
+1 * (16 to the power 1) = 1 * 16 = 16
+F * (16 to the power 0) = 15 * 1 = 15
+Total: 16 + 15 = 31
+Answer: 31 in decimal
 
-#### 7. Convert binary 1111 to hexadecimal
-- 4 bits (one nibble) convert directly into one hexadecimal digit:
-  - Decimal value: $(1 \times 8) + (1 \times 4) + (1 \times 2) + (1 \times 1) = 8 + 4 + 2 + 1 = 15_{10}$
-  - In hexadecimal, $15_{10}$ is represented by the digit **$F_{16}$** (or $0xF$).
+7. Convert binary 1111 to hexadecimal:
+Steps:
+1111 in binary = (1 * 8) + (1 * 4) + (1 * 2) + (1 * 1) = 8 + 4 + 2 + 1 = 15 in decimal.
+In hexadecimal, the decimal value 15 is represented by the letter F.
+Answer: F in hexadecimal
 
----
+Task 5.2 - Verify using Python
+I opened python3 in the terminal and tested the expressions:
+- bin(13) returned '0b1101'. Matches my calculation.
+- bin(25) returned '0b11001'. Matches my calculation.
+- int('1010', 2) returned 10. Matches my calculation.
+- int('1101', 2) returned 13. Matches my calculation.
+- int('A', 16) returned 10. Matches my calculation.
+- int('1F', 16) returned 31. Matches my calculation.
+- hex(0b1111) returned '0xf'. Matches my calculation.
 
-### Task 5.2 — Verify using Python
+Task 5.3 - Build a small number converter
+I wrote number_converter.py to ask the user for a number, convert it to an integer, and print its binary and hex values using bin() and hex().
 
-| Expression Tested | Python Output | Matches Manual Calculation? |
-| :--- | :--- | :---: |
-| `bin(13)` | `'0b1101'` | Yes ($1101_2$) |
-| `bin(25)` | `'0b11001'` | Yes ($11001_2$) |
-| `int('1010', 2)` | `10` | Yes ($10_{10}$) |
-| `int('1101', 2)` | `13` | Yes ($13_{10}$) |
-| `int('A', 16)` | `10` | Yes ($10_{10}$) |
-| `int('1F', 16)` | `31` | Yes ($31_{10}$) |
-| `hex(0b1111)` | `'0xf'` | Yes ($F_{16}$) |
+Test runs performed:
+Test 1:
+- Input number: 13
+- Binary output: 0b1101
+- Hexadecimal output: 0xd
 
-All Python runtime evaluations matched manual calculations with 100% precision.
+Test 2:
+- Input number: 25
+- Binary output: 0b11001
+- Hexadecimal output: 0x19
 
----
+Test 3:
+- Input number: 42
+- Binary output: 0b101010
+- Hexadecimal output: 0x2a
 
-### Task 5.3 — Small Number Converter Program
-The program `number_converter.py` was created to prompt users for a positive decimal number, safely parse input as an integer, and output both binary and hexadecimal equivalents.
+What the conversion functions do:
+- bin(): This built-in function takes an integer and returns its binary representation as a string with a 0b prefix, showing the bits in base 2.
+- hex(): This built-in function takes an integer and returns its hexadecimal representation as a string with a 0x prefix, showing the value in base 16.
 
-#### Execution Test Results:
-| Test Number (Decimal) | Binary Output | Hexadecimal Output | Observation |
-| :--- | :--- | :--- | :--- |
-| **13** | `0b1101` (`1101`) | `0xD` (`D`) | Matches manual Task 5.1 calculations |
-| **25** | `0b11001` (`11001`) | `0x19` (`19`) | Matches manual Task 5.1 calculations |
-| **42** | `0b101010` (`101010`) | `0x2A` (`2A`) | Confirms multi-byte conversion ($32+8+2=42$, $2\times16 + 10 = 42$) |
-| **255** | `0b11111111` (`11111111`) | `0xFF` (`FF`) | Full 8-bit byte representation |
+Task 5.4 - How is text stored?
+1. ASCII decimal codes:
+- Uppercase letter A has the ASCII code 65.
+- Lowercase letter a has the ASCII code 97.
 
-#### Explanation of Python conversion functions:
-- `bin(x)`: Converts an integer `x` into a binary string prefixed with `'0b'`. It calculates the base-2 positional bits representing the magnitude of the integer.
-- `hex(x)`: Converts an integer `x` into a lowercase hexadecimal string prefixed with `'0x'`. It aggregates every 4 bits into one of the 16 hexadecimal symbols (`0-9`, `a-f`).
+2. Why a computer needs an encoding standard to store text:
+Computers are physical electronic devices that only store and process electric charges represented as 0s and 1s (bits). Because computers cannot directly store human letters, alphabets, or punctuation, they need a standardized lookup table (an encoding system) where each character is assigned a specific number code so all computers understand the same text.
 
----
-
-### Task 5.4 — How is text stored?
-- **ASCII decimal codes:**
-  - Uppercase **'A'**: Decimal **65** (Binary: `01000001`, Hex: `0x41`)
-  - Lowercase **'a'**: Decimal **97** (Binary: `01100001`, Hex: `0x61`)
-- **Why a computer needs an encoding standard to store text:**
-  Computers cannot natively store letters, symbols, or language glyphs; physical memory hardware operates strictly on binary electrical charges (0s and 1s). An encoding standard establishes an unambiguous universal translation mapping (code table) between alphanumeric characters and specific numeric binary integers so that text can be stored, transmitted, and rendered accurately across different operating systems and devices.
-- **Example of a character not in basic ASCII:**
-  The Euro currency symbol **€** (Unicode code point `U+20AC`) or the Devanagari character **अ** (Unicode code point `U+0905`). Basic ASCII is strictly a 7-bit standard (values 0–127) containing only standard English letters, digits, and control characters; extended characters and international alphabets require UTF-8 multi-byte encoding.
-
----
+3. Example of a character not in basic ASCII:
+The classic ASCII standard only uses 7 bits and has 128 characters, which only covers standard English letters, numbers, and basic punctuation. Characters like the Hindi letter अ or the smiling face emoji are not in basic ASCII; they need modern UTF-8 encoding.
 
 ## 5. Difficulties faced
-- Handling the `'0b'` and `'0x'` prefixes returned by Python's built-in `bin()` and `hex()` functions when displaying pure numeric digits.
+When doing repeated division by 2 to convert decimal to binary, I almost forgot whether to read the remainder numbers from top to bottom or bottom to top. Also, understanding why hexadecimal starts using letters like A to F took a moment to get used to.
 
 ## 6. How I resolved them
-- Used string slicing (`[2:]`) to show both the standard programmer notation (e.g. `0b1101`) and the raw numerical digits (`1101`) for clarity.
+I double checked my math by multiplying the binary bits by their powers of 2 to verify they added up to the original number. Seeing that the last remainder corresponds to the largest power of 2 helped me remember to always read from bottom to top.
 
 ## 7. Evidence / files
-- Python converter script: `mission-05-numbers-data/number_converter.py`
-- Documentation: `mission-05-numbers-data/README.md`
+- mission-05-numbers-data/number_converter.py: working Python script for converting numbers.
+- mission-05-numbers-data/README.md: notes on manual calculations, Python verification, and text encoding.
 
 ## 8. Commit details
-- **Commit Message:** `Build number converter and practise data representation`
-- **Pushed to GitHub:** Yes (Branch: `main`)
+Commit message: Build number converter and practise data representation
+Changes saved, committed, and pushed to GitHub.

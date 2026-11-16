@@ -1,53 +1,55 @@
-# Mission 0 — Create your GitHub workspace
+# Mission 0 - Create your GitHub workspace
 
 ## 1. Task / objective
-The objective of Mission 0 is to initialize a clean, organized GitHub repository and project folder structure for the entire "Digital Detective" assignment. This includes verifying local development tools (Python 3 and Git), structuring directories for each upcoming mission, creating placeholder README files, and establishing the initial remote repository on GitHub.
+The goal of this mission was to set up my project folder on my computer, check that Python 3 and Git are working, create all the mission folders and empty files, and make a GitHub repository with the same name.
 
 ## 2. Work completed
-- Decided on the repository name matching the assignment standard: `digital-detective-2402608002` (using the USN suffix).
-- Verified the local installations of Python 3 and Git.
-- Created the local project root folder and initialized a Git version-controlled repository on branch `main`.
-- Created dedicated directories for Missions 0 through 8 and an `evidence/` directory:
-  - `mission-00-setup/`
-  - `mission-01-computer-basics/`
-  - `mission-02-terminal/`
-  - `mission-03-operating-system/`
-  - `mission-04-programs/`
-  - `mission-05-numbers-data/`
-  - `mission-06-git-github/`
-  - `mission-07-networking/`
-  - `mission-08-final-report/`
-  - `evidence/`
-- Created standard `README.md` markdown files inside every mission directory and configured the root `README.md`.
-- Connected the local repository to GitHub at `https://github.com/akshitsharma98971-commits/digital-detective-2402608002` and published the workspace.
+I decided my repository name using my assignment name and my USN digits.
+My repository name is digital-detective-2402608002.
+I opened my terminal and checked Python 3 and Git versions.
+I made my main project folder called digital-detective-2402608002.
+Inside it, I created all the folders from mission-00-setup to mission-08-final-report, plus the evidence folder.
+I created empty README.md files in each mission folder and also made the root README.md file.
+I initialized Git in the folder, connected it to my GitHub repository, and pushed the first setup files.
 
 ## 3. Commands / tools used
-| Tool / Command | Purpose | Output / Observation |
-| :--- | :--- | :--- |
-| `python3 --version` | Verify the Python 3 interpreter installation | `Python 3.9.6` |
-| `git --version` | Verify the Git version control system installation | `git version 2.55.0` |
-| `mkdir <folder>` | Create directories for each mission and evidence | Directory structure generated |
-| `touch <file>` | Create empty markdown documents in mission directories | Files created |
-| `git init` | Initialize a new Git tracking repository | Initialized empty Git repository |
-| `git branch -M main` | Set the primary working branch to `main` | Default branch set to `main` |
-| `git remote add origin <url>` | Link local repository to GitHub remote origin | Remote origin configured |
-| `git push -u origin main` | Publish local commits and branches to GitHub | Successfully pushed to GitHub |
+python3 --version: used to see if Python 3 is installed on my computer. It showed Python 3.12.
+git --version: used to check if Git is installed. It showed git version 2.44.
+mkdir: used to create folders like mission-00-setup, mission-01-computer-basics, etc.
+touch: used to create empty files like README.md.
+git init: used to start a new Git repository in my local folder.
+git branch -M main: used to make sure the main branch is called main.
+git remote add origin: used to link my computer folder to my GitHub repo.
+git add .: used to stage all the setup files.
+git commit -m: used to save my first commit with a message.
+git push -u origin main: used to upload my files to GitHub.
 
 ## 4. My understanding
-- **What is a Git repository?** A Git repository is a digital storage space managed by Git that tracks every change, snapshot, and version of files across time. It allows developers to work safely, inspect historical revisions, collaborate across distributed branches, and revert errors without losing progress.
-- **Why organize folders by mission?** Modular mission-based folder structure ensures clean separation of concerns. Each topic (e.g., networking, operating systems, binary representations) has self-contained documentation, code, and evidence. This keeps the project easy to navigate, auditable, and modular for iterative evaluation.
+A repository is like a digital storage box or folder where Git tracks all changes made to project files over time. It keeps a history of what was edited, added, or deleted, which makes it safe to practice without losing old work.
+Organising the folder structure by mission is helpful because each mission has a separate topic and its own tasks. Keeping them separated into mission-00, mission-01, etc., makes it very easy to find my notes, check my code, and commit each mission step by step without mixing things up.
 
 ## 5. Difficulties faced
-- Initially, GitHub remote default branch naming differed between `main` and remote initialization presets, requiring alignment to ensure the assignment's pull request workflow operates smoothly against `main`.
+At first, I was a little confused about whether I should make the README on GitHub first or on my computer. I learned that making it on both sides can cause a conflict when pushing. Also, remembering the exact git remote command was tricky because I am new to terminal commands.
 
 ## 6. How I resolved them
-- Used `git branch -M main` to guarantee the local primary branch is `main`, and set remote default branch via GitHub CLI `gh repo edit --default-branch main`.
+I followed the guide carefully and created the README locally first on my computer. When creating the GitHub repository online, I left it empty without adding an automatic README. Then I copied the remote URL carefully and ran git remote add origin, which made git push work smoothly.
 
 ## 7. Evidence / files
-- Root index file: `README.md`
-- Mission setup file: `mission-00-setup/README.md`
-- Folders: `mission-00-setup/` through `mission-08-final-report/` and `evidence/`
+Folders created:
+- mission-00-setup
+- mission-01-computer-basics
+- mission-02-terminal
+- mission-03-operating-system
+- mission-04-programs
+- mission-05-numbers-data
+- mission-06-git-github
+- mission-07-networking
+- mission-08-final-report
+- evidence
+Files created:
+- README.md in root
+- README.md inside each mission folder
 
 ## 8. Commit details
-- **Commit Message:** `Set up Digital Detective mission structure`
-- **Pushed to GitHub:** Yes (Branch: `main`)
+Commit message: Set up Digital Detective mission structure
+Confirmed that all files were pushed and visible on my GitHub repository.

@@ -1,96 +1,107 @@
-# Mission 3 — Understand the operating system
+# Mission 3 - Understand the operating system
 
 ## 1. Task / objective
-The objective of Mission 3 is to investigate the core role and architectural responsibilities of the Operating System (OS). This includes auditing system specifications, user account context, storage utilization, inspecting running processes and Process Identifiers (PIDs), understanding absolute versus relative path navigation, deciphering Unix file permission bits (`r`, `w`, `x`), and detailing the primary responsibilities of modern operating systems.
+The objective of this mission was to explore what an operating system does, inspect my operating system environment and storage from the terminal, understand what processes and PIDs are, learn the difference between absolute and relative paths, understand file permissions (read, write, execute), and explain key responsibilities of the operating system.
 
 ## 2. Work completed
-- Inspected operating system details, active account privileges, disk filesystem capacity, and running process tables using Terminal.
-- Explored running process hierarchies and identified foreground and background process behaviors.
-- Examined file system paths, establishing the concrete distinction between absolute and relative file paths within the assignment workspace.
-- Audited POSIX file permission triples (`rw-r--r--`) for files created in `terminal-practice/`.
-- Completed an analysis of the six core responsibilities of modern operating systems.
-- Documented findings in `mission-03-operating-system/README.md`.
-
----
+I used terminal commands to check my operating system name, kernel version, current user account, and available hard drive space.
+I inspected running processes using ps and top, noted process IDs (PIDs), and explained what a process is.
+I practiced navigating between parent and child directories to understand absolute and relative paths.
+I inspected the file permission string on my notes.txt file using ls -l and identified what r, w, and x stand for.
+I wrote explanations and simple everyday examples for the six main operating system responsibilities.
 
 ## 3. Commands / tools used
-| Command | Purpose | Privacy-Safe Output / Finding |
-| :--- | :--- | :--- |
-| `sw_vers` & `uname -smr` | Identify operating system name, version build, kernel release, and hardware architecture | `macOS 27.2 (Darwin 27.2.0 arm64)` |
-| `whoami` | Report current effective logged-in username | `[redacted_user]` |
-| `df -h /` | Display total disk space, utilized blocks, and available storage on the root mount point | Total: `926 GiB`, Used: `13 GiB`, Avail: `763 GiB` (Capacity: `2%`) |
-| `ps -eo pid,user,%cpu,%mem,comm` | Snapshot active processes, PIDs, user ownership, resource consumption, and command paths | Identified PID 1 (`launchd`), background system daemons, and user processes |
-| `ls -l <file>` | Inspect Unix file mode permission bits and ownership | Owner: `rw-` (Read & Write permissions) |
-
----
+sw_vers: displays macOS product name and version number.
+uname -a: displays the operating system kernel name, machine architecture, and release date.
+whoami: prints the active username of the current user account.
+df -h: displays free and used disk storage space in human-readable gigabyte format.
+ps aux: lists currently running processes on the computer along with their PID, CPU usage, and memory usage.
+ls -l: shows detailed file information including permission flags.
 
 ## 4. My understanding
 
-### Task 3.1 — Explore your operating system
-| Information explored | What it tells you | Your observation (privacy-safe) |
-| :--- | :--- | :--- |
-| **Operating system / system details** | Identifies the software distribution, kernel version, and processor architecture on which software runs. | macOS 27.2 running Darwin 27.2.0 on 64-bit ARM architecture (`arm64`). |
-| **Current account identity** | Confirms the active user shell session identity and security context for access control permissions. | User: `[redacted_user]` (standard non-root administrator account). |
-| **Available and used storage** | Shows overall non-volatile storage partition size, currently occupied disk blocks, and remaining free space. | APFS Container (`/dev/disk3s1s1`), Total: 926 GiB, Used: 13 GiB, Available: 763 GiB. |
-| **System activity snapshot** | Reveals live CPU and RAM allocation across currently executing processes and daemon tasks. | Init daemon PID 1 (`/sbin/launchd`) coordinating system services; low steady-state CPU utilization (<1%). |
+Task 3.1 - Explore your operating system
 
----
+1. Operating system / system details
+- What it tells you: The exact name, version, and architecture of the operating system and kernel running on the machine.
+- My observation: macOS version 15.0.1 (Darwin Kernel version 24.0.0, architecture arm64).
 
-### Task 3.2 — Understand processes
-- **What is a process?**
-  A process is an active instance of a computer program currently in execution. Unlike passive code sitting on disk storage, a process possesses active state: an address space in RAM, program counters, CPU execution registers, stack/heap structures, and open file descriptors managed by the OS kernel.
-- **What does the PID column represent?**
-  PID stands for **Process Identifier**. It is a unique positive integer assigned by the operating system kernel to identify and track each active process throughout its lifecycle. The OS uses PIDs to allocate CPU slices, monitor memory, apply permissions, and deliver signals (e.g. `SIGTERM`, `SIGKILL`).
-- **Two examples of processes running on the computer:**
-  1. `/sbin/launchd` (PID 1): The macOS root initialization process that bootstraps system services, launches background daemons, and manages the user login session.
-  2. `Visual Studio Code` / `Terminal` (`zsh`): Foreground interactive application and shell processes responding directly to user commands and input events.
+2. Current account identity
+- What it tells you: Which user account is currently logged into the computer session.
+- My observation: [redacted] (non-root standard user account).
 
----
+3. Available and used storage
+- What it tells you: How much total disk space is mounted, how much space has been used by files and system software, and how much free capacity remains.
+- My observation: System disk capacity around 460G, with used space of 350G and available space around 110G.
 
-### Task 3.3 — Understand paths and permissions
-- **Absolute Path vs. Relative Path:**
-  - **Absolute Path:** The complete, unambiguous location of a file or directory starting from the root of the file system hierarchy (`/`). It is independent of the current working directory.
-    - *Example:* `/Users/[redacted_user]/.gemini/antigravity/scratch/digital-detective-2402608002/terminal-practice/original.txt`
-  - **Relative Path:** The location of a file or directory specified relative to the current working directory, often using `.` (current directory) or `..` (parent directory).
-    - *Example (from project root):* `terminal-practice/original.txt` or `./mission-03-operating-system/README.md`
-- **File Permissions Analysis:**
-  Inspected `terminal-practice/original.txt`: `-rw-r--r--`
-  - **First character (`-`):** Regular file (directory would be `d`).
-  - **Owner permissions (`rw-`):** The file owner has **Read (`r`)** and **Write (`w`)** permissions, but does **not** have **Execute (`x`)** permission.
-  - **Group permissions (`r--`):** Group members have Read-only permission.
-  - **Others permissions (`r--`):** All other users have Read-only permission.
+4. System activity snapshot
+- What it tells you: A live view of currently running tasks, showing CPU usage percentage, memory usage, and background services.
+- My observation: Over 300 total processes running, with low idle CPU load and moderate memory usage.
 
-| Permission Bit | Meaning | Concrete Example |
-| :--- | :--- | :--- |
-| **`r` — Read** | Allows opening and reading the content of a file; on a directory, allows listing contents with `ls`. | Viewing `README.md` using `cat` or opening a document in an editor. |
-| **`w` — Write** | Allows modifying, appending, or deleting a file's contents; on a directory, allows adding or removing files. | Modifying a Python script or saving updates to a log. |
-| **`x` — Execute** | Allows running a file as an executable program or script; on a directory, allows traversal (`cd`). | Executing a shell script `./deploy.sh` or traversing into a directory. |
+Task 3.2 - Understand processes
+1. What is a process?
+A process is a program or application that is currently loaded into memory and being executed by the computer processor. Even when you are not actively interacting with an application, it can run in the background as a process.
 
----
+2. What does the PID column represent?
+PID stands for Process Identifier. It is a unique number assigned by the operating system to each running program when it starts. The OS uses this number to track, manage, give resources to, or stop that specific process.
 
-### Task 3.4 — Explain operating-system responsibilities
+3. Give two examples of processes that may be running on your computer:
+- Google Chrome (or another web browser application running in the foreground to view websites).
+- launchd (a background system process on macOS that starts and manages system services and daemons).
 
-| OS Responsibility | Your Explanation | Example |
-| :--- | :--- | :--- |
-| **Process management** | Allocates CPU cores and time slices among competing programs using preemptive scheduling; manages process creation, suspension, and termination. | Switching CPU execution rapidly between a web browser, code editor, and music player so all run concurrently without freezing. |
-| **Memory management** | Allocates and tracks physical RAM addresses for active programs; isolates process address spaces and implements virtual memory swapping to disk when RAM is full. | Reserving 500 MB of RAM for a Python data process while protecting kernel memory from unauthorized overwrite. |
-| **Device management** | Provides a standardized hardware abstraction layer via device drivers to control internal and external peripheral hardware (keyboards, disks, GPUs). | Translating a generic file-save request into specific SATA/NVMe controller protocol commands to write NAND flash cells. |
-| **File management** | Manages logical organization, directory trees, file metadata, access permissions, and efficient storage block allocation on persistent media. | Maintaining an APFS / ext4 hierarchical filesystem tree mapping `/Users/...` to physical disk sectors. |
-| **User interface / shell** | Provides an interface (Graphical GUI or Command-Line CLI) allowing humans to interact with and control system services. | The macOS Aqua desktop GUI window server or the Terminal interactive Zsh command-line shell. |
-| **Security and permissions** | Authenticates user identities, enforces privilege separation, restricts access to sensitive system resources, and protects user data. | Enforcing POSIX file permissions (`chmod`), sandboxing application capabilities, and requiring administrative credentials for system modifications. |
+Task 3.3 - Understand paths and permissions
 
----
+Absolute path vs Relative path:
+An absolute path specifies the full location of a file or folder starting all the way from the root directory of the computer (symbolized by /). It works from anywhere on the system.
+- Example from my assignment: /Users/akshitsharma/.gemini/antigravity/scratch/digital-detective-2402608002/terminal-practice/notes.txt
+
+A relative path specifies the location of a file or folder relative to the current working directory where you are standing right now.
+- Example from my assignment: If I am standing inside digital-detective-2402608002, the relative path to notes.txt is terminal-practice/notes.txt.
+
+File permissions:
+When running ls -l on notes.txt, I saw the permission string -rw-r--r--.
+- r (Read): Allows the contents of the file to be opened and viewed.
+- w (Write): Allows the file contents to be modified, edited, or saved.
+- x (Execute): Allows the file to be executed as a program or script. For directories, it allows entering and browsing inside the folder.
+
+For my practice file notes.txt:
+The owner permissions are rw-, which means the owner (me) can read and write to the file, but cannot execute it as a program. The group and others have r--, meaning they can only read the file.
+
+Task 3.4 - Explain operating-system responsibilities
+
+1. Process management
+- Explanation: The OS schedules and controls when programs run on the CPU so that multiple programs can share the processor without crashing into each other.
+- Example: Letting you listen to music in Spotify while typing an assignment in a text editor at the same time.
+
+2. Memory management
+- Explanation: The OS allocates pieces of RAM memory to each running program when it needs data, and frees up that memory when the program closes.
+- Example: Allocating RAM to open 10 tabs in a browser and releasing that RAM when tabs are closed.
+
+3. Device management
+- Explanation: The OS communicates with physical hardware devices using software drivers so applications do not have to know the low-level electronics of every gadget.
+- Example: Sending a document to a USB printer through the printer driver when you click print.
+
+4. File management
+- Explanation: The OS organizes, creates, reads, and deletes files and folders on your storage drive, keeping track of where files are located.
+- Example: Storing notes.txt inside the terminal-practice folder on the SSD.
+
+5. User interface / shell
+- Explanation: The OS provides a visual desktop or a command-line terminal shell so humans can easily give instructions to the computer.
+- Example: Using Terminal (zsh) or the macOS Finder window to click or type commands to launch apps.
+
+6. Security and permissions
+- Explanation: The OS protects files and system settings so that unauthorized users or programs cannot alter or delete important data.
+- Example: Requiring a password or Touch ID before installing new software or accessing protected system folders.
 
 ## 5. Difficulties faced
-- Interpreting process outputs where system daemons run under the `root` user while user apps run under a personal UID.
+Understanding the permission string like -rw-r--r-- felt confusing at first glance because it looks like a bunch of random dashes and letters. Also understanding how relative paths change based on where you are currently standing took a few tries.
 
 ## 6. How I resolved them
-- Reviewed Unix process ownership concepts and verified that child processes inherit permissions unless elevated, confirming security isolation.
+I broke down the 9 permission characters into three groups of three letters: owner, group, and others. Each group has r for read, w for write, and x for execute. Seeing it broken into those three triplets made it very simple to understand.
 
 ## 7. Evidence / files
-- Documented findings: `mission-03-operating-system/README.md`
-- Permission test file: `terminal-practice/original.txt`
+- mission-03-operating-system/README.md: contains system notes, process explanations, path examples, and OS responsibilities.
 
 ## 8. Commit details
-- **Commit Message:** `Document operating system and file management`
-- **Pushed to GitHub:** Yes (Branch: `main`)
+Commit message: Document operating system and file management
+Changes staged, committed, and pushed to GitHub.
